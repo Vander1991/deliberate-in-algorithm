@@ -1,0 +1,33 @@
+# Operating System Files  
+
+*.DS_Store
+Thumbs.db
+
+# eclipse specific git ignore
+*.pydevproject
+.metadata
+# External tool builders
+.externalToolBuilders/
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+
+build/
+target/
+bin/
+classes/
+
+# Java class files
+*.class
+/.factorypath
+/.springBeans
+/.project
+/.classpath
+/.settings/
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+scheduler-filecore-cloud.iml
