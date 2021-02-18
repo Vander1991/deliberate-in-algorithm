@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>algorithm.practice</groupId>
+    <artifactId>deliberat-in-algorithm</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>206-reverse-linked-list</module>
+        <module>24-swap-nodes-in-pairs</module>
+        <module>141-linked-list-cycle</module>
+        <module>142-linked-list-cycle-ii</module>
+        <module>25-reverse-nodes-in-k-group</module>
+        <module>20-valid-parentheses</module>
+        <module>232-implement-queue-using-stacks</module>
+        <module>225-implement-stack-using-queues</module>
+        <module>703-kth-largest-element-in-a-stream</module>
+    </modules>
+
+    <!-- maven插件 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
