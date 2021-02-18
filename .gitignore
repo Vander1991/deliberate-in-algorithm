@@ -1,33 +1,36 @@
-# Operating System Files  
-
-*.DS_Store
-Thumbs.db
-
-# eclipse specific git ignore
-*.pydevproject
-.metadata
-# External tool builders
-.externalToolBuilders/
-# Locally stored "Eclipse launch configurations"
-*.launch
-
-
-build/
+HELP.md
 target/
-bin/
-classes/
+log/
+logs/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
 
-# Java class files
-*.class
-/.factorypath
-/.springBeans
-/.project
-/.classpath
-/.settings/
+### STS ###
+log.base_IS_UNDEFINED/
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# Intellij project files
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
 *.ipr
-*.iws
-.idea/
-scheduler-filecore-cloud.iml
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+#build/
+
+### VS Code ###
+.vscode/
+
+### else ###
