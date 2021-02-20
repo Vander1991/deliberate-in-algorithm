@@ -9,7 +9,7 @@ import practice.ListNode;
  */
 public class Solution2 {
 
-    public boolean hasCycle(ListNode head) {
+    public static boolean hasCycle(ListNode head) {
         ListNode dummyHead = new ListNode(0);
         dummyHead.next = head;
         ListNode slowTraverser = dummyHead;

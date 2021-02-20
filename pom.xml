@@ -19,6 +19,7 @@
         <module>225-implement-stack-using-queues</module>
         <module>703-kth-largest-element-in-a-stream</module>
         <module>239-sliding-window-maximum</module>
+        <module>242-valid-anagram</module>
     </modules>
 
     <!-- maven插件 -->
