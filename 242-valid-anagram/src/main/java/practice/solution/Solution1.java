@@ -14,13 +14,13 @@ public class Solution1 {
         Map<Character, Integer> sMap = stringCharMap(s);
         Map<Character, Integer> tMap = stringCharMap(t);
 
-        if(sMap.size() != tMap.size()) {
+        if (sMap.size() != tMap.size()) {
             return false;
         }
 
         for (Map.Entry<Character, Integer> entry : sMap.entrySet()) {
             if (tMap.containsKey(entry.getKey())) {
-                if(entry.getValue().intValue() != tMap.get(entry.getKey()).intValue()) {
+                if (entry.getValue().intValue() != tMap.get(entry.getKey()).intValue()) {
                     return false;
                 }
             } else {
@@ -41,6 +41,32 @@ public class Solution1 {
             }
         }
         return stringMap;
+    }
+
+    /**
+     * 遍历第二个数组的同时进行比较
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean officialIsAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        Map<Character, Integer> table = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            table.put(ch, table.getOrDefault(ch, 0) + 1);
+        }
+        for (int i = 0; i < t.length(); i++) {
+            char ch = t.charAt(i);
+            table.put(ch, table.getOrDefault(ch, 0) - 1);
+            if (table.get(ch) < 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
