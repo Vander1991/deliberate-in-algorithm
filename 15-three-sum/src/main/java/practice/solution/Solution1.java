@@ -16,34 +16,39 @@ public class Solution1 {
         if (nums.length < 3) {
             return results;
         }
+        Arrays.sort(nums);
         Map<Integer, Integer> numbersMap = getNumbersMap(nums);
-        List<List<Integer>> tempResults = new ArrayList<>();
+        Set<List<Integer>> tempResults = new HashSet<>();
 
         int numsLen = nums.length;
         for (int i = 0; i < numsLen - 2; i++) {
             for (int j = i + 1; j < numsLen - 1; j++) {
-                int another = -(nums[i] + nums[j]);
-                if (numbersMap.containsKey(another)) {
-                    if (0 == another && 0 == nums[i] && 0 == nums[j]) {
-                        if (numbersMap.get(another) >= 3) {
-                            tempResults.add(addElements(nums, i, j));
-                            continue;
-                        } else {
-                            continue;
-                        }
-                    }
+                // 遍历到与前一个元素相同直接跳过，因为前一个元素已经跟别的元素组合过了
+                if ((i > 0 && nums[i] == nums[i - 1])) {
+                    continue;
+                }
 
-                    if (nums[i] == another || nums[j] == another) {
-                        if (numbersMap.get(another) >= 2) {
-                            tempResults.add(addElements(nums, i, j));
-                        } else {
-                            continue;
-                        }
-                    } else {
-                        tempResults.add(addElements(nums, i, j));
+                int another = -(nums[i] + nums[j]);
+
+                // 对连续3个0的情况做特殊处理
+                if (0 == another && 0 == nums[i] && 0 == nums[i + 2]) {
+                    tempResults.add(addElements(nums, i, j));
+                }
+
+                // 检查两数之和是否在hash表中
+                if (numbersMap.containsKey(another)) {
+                    int targetIndex = numbersMap.get(another);
+                    if(targetIndex <= j) {// 往回找了，前面肯定已经组合过了 或 目标数就是nums[j]本身
+                        continue;
                     }
+                    tempResults.add(addElements(nums, i, j));
                 }
             }
+        }
+
+        // 将临时结果集的结果添加到results
+        for (List<Integer> list : tempResults) {
+            results.add(list);
         }
 
         return results;
@@ -51,8 +56,8 @@ public class Solution1 {
 
     private Map<Integer, Integer> getNumbersMap(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
         }
         return map;
     }
@@ -62,7 +67,21 @@ public class Solution1 {
         list.add(nums[i]);
         list.add(nums[j]);
         list.add(-(nums[i] + nums[j]));
+        list.sort(new ComparatorImpl());
         return list;
+    }
+
+    class ComparatorImpl implements Comparator<Integer> {
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            if (o1 > o2) {
+                return 1;
+            } else if (o1 < o2) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
     }
 
 }
