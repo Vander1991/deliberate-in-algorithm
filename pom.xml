@@ -20,7 +20,17 @@
         <module>703-kth-largest-element-in-a-stream</module>
         <module>239-sliding-window-maximum</module>
         <module>242-valid-anagram</module>
+        <module>1-two-sum</module>
+        <module>15-three-sum</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
 
     <!-- maven插件 -->
     <build>
