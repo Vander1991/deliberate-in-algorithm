@@ -22,6 +22,7 @@
         <module>242-valid-anagram</module>
         <module>1-two-sum</module>
         <module>15-three-sum</module>
+        <module>98-validate-binary-search-tree</module>
     </modules>
 
     <dependencies>
